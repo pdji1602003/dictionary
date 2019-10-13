@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Dictionary</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+	<script defer src="script.js"></script>
 </head>
+
 <body>
 	<div class="container">
-		
+		<div class="time">12:30</div>
+		<div class="greeting">Good afternoon!</div>
+		<form class="search-form" action="/">
+			<label class="search-input-label">
+				<input class="search-input" type="text" placeholder="Type a word here...">
+				<button class="search-btn" type="submit">
+					<i class="fa fa-search fa-lg"></i>
+				</button>
+			</label>
+
+			<br>
+
+			<label class="search-select-label">Select Language :</label>
+			<select class="search-select" name="">
+				<option value="English">English</option>
+			</select>
+		</form>
+		<div class="result">
+			<ul>
+				<li class="result-def">Definition: Success or failure apparently brought by chance rather than through one's own
+					actions.</li>
+				<li class="result-ex">Example: it was just luck that the first kick went in.</li>
+			</ul>
+
+		</div>
 	</div>
+
 </body>
+
 </html>
