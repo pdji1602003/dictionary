@@ -40,8 +40,8 @@ body {
 .time {
 	font-size: 10rem;
 	-webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 }
 
 .greeting {
