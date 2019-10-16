@@ -20,8 +20,8 @@ formElement.addEventListener('submit', e => {
 			.then(function (e) {
 				resultContainer.style.display = 'block';
 				console.log(e.data[0]);
-				resultDef.innerText = 'Definition: ' + e.data[0].meaning.noun[0].definition;
-				resultEx.innerText = 'Example: ' + e.data[0].meaning.noun[0].example + '.';
+				resultDef.innerText = 'Definition: ' + e.data[0].meaning.noun[0].definition || 'Sorry, we cant not find definition for this word.';
+				resultEx.innerText = 'Example: ' + e.data[0].meaning.noun[0].example + '.' || 'Sorry, we cant not find example for this word.';
 			})
 			.catch(error => console.log(error))
 	}
