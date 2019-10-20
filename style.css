@@ -122,9 +122,15 @@ body {
 }
 
 .result {
-	display: none;
+	display: block;
 	margin: 10px auto 0;
 	width: 800px;
 	max-width: 60%;
 	text-align: start;
+}
+
+.result-word {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 5px;
 }
