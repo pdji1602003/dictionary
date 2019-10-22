@@ -23,9 +23,7 @@
 					<i class="fa fa-search fa-lg"></i>
 				</button>
 			</label>
-
 			<br>
-
 			<label class="search-select-label">Select Language :</label>
 			<select class="search-select" id="lang-select">
 				<option value="en">English</option>
@@ -34,13 +32,25 @@
 			</select>
 		</form>
 		<div class="result">
-			<p class="result-word">hello</p>
-			<ul>
-				<li class="result-def">Definition: Success or failure apparently brought by chance rather than through one's own
-					actions.</li>
-				<li class="result-ex">Example: it was just luck that the first kick went in.</li>
+			<p class="result-word"></p>
+			<ul id="output">
+				<!-- <li class="result-def"></li>
+				<li class="result-ex"></li> -->
 			</ul>
+		</div>
+	</div>
 
+	<!-- popup -->
+	<div class="overlay" data-active="false">
+		<div class="popup">
+			<div class="popup-header">
+				<h2>Oops!</h2>
+				<a class="close" href="#">&times;</a>
+			</div>
+			<div class="popup-content">
+				<p>Sorry, we could not find the word you were looking for.</p>
+				<p>Please check your spelling or try with another word.</p>
+			</div>
 		</div>
 	</div>
 

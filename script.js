@@ -15,30 +15,21 @@ const resultContainer = document.querySelector('.result');
 const resultDef = document.querySelector('.result-def');
 const resultEx = document.querySelector('.result-ex');
 const selectElement = document.getElementById('lang-select');
+const overlay = document.querySelector('.overlay');
+const closeBtn = document.querySelector('.close');
+let outputContainer = document.getElementById('output');
 
 /* Events */
 // 輸入單字觸發的事件，send request to google dictionary api並抓取相關資料
 formElement.addEventListener('submit', e => {
 	e.preventDefault();
-	
-	const inputValue = searchInput.value;
-	const langValue = selectElement.options[selectElement.selectedIndex].value;
-	const BASE_URL = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define=';
-	if (inputValue == null || inputValue == null) {
-		return;
-	} else {
-		axios
-			.get(`${BASE_URL}${inputValue}&lang=${langValue}`)
-			.then(function (e) {
-				resultContainer.style.display = 'block';
-				console.log(e.data[0]);
-				resultDef.innerText = 'Definition: ' + e.data[0].meaning.noun[0].definition || 'Sorry, we cant not find definition for this word.';
-				resultEx.innerText = 'Example: ' + e.data[0].meaning.noun[0].example + '.' || 'Sorry, we cant not find example for this word.';
-			})
-			.catch(error => console.log(error))
-	}
-	clearInputValue();
-	showResult(inputValue);
+	fetchData();
+
+
+})
+
+closeBtn.addEventListener('click', event => {
+	overlay.setAttribute('data-active', 'false');
 })
 
 /* functions */
@@ -68,9 +59,70 @@ function clearInputValue() {
 	searchInput.value = '';
 }
 
+//顯示使用者輸入查找的單字
 function showResult(inputValue) {
 	const textContainer = document.querySelector('.result-word');
 	textContainer.innerText = inputValue;
+}
+
+//抓取API
+function fetchData() {
+	const inputValue = searchInput.value;
+	const langValue = selectElement.options[selectElement.selectedIndex].value;
+	const BASE_URL = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define=';
+	if (inputValue == null || inputValue === '') return;
+	clearInputValue();
+	/*
+		當使用者沒有輸入空字串時，就會發出request資料的需求
+		但這時候還是有幾項可能的錯誤
+		1.使用者輸入錯誤的字，我的問題是，當使用者輸入錯字時，我也要像api請求資料嗎？
+		應該是要的，所以問題在於，當沒有對應的data時，我該怎麼handle這種情形？
+		meaning是在哪一個key
+		有的話，尋找meaning
+		當沒有meaning時回傳錯誤
+		2.
+	*/
+	axios
+		.get(`${BASE_URL}${inputValue}&lang=${langValue}`)
+		.then(function (e) {
+			const { data } = e;
+
+			if (data[0]) {
+				const keys = Object.keys(data[0]);//這是一個array
+				keys.forEach(key => {
+					if (key === "meaning") {
+						const index = keys.indexOf(key);
+						console.log(data[0].key);
+						
+
+						console.log(data[0].key);
+
+						//我想知道meaning底下包含什麼值
+					}
+				})
+
+				resultContainer.style.display = 'block';
+				showResult(inputValue);
+				//同時有definition跟example就回傳
+				// resultDef.innerText = 'Definition: ' + data[0].meaning.noun[0].definition || '我是真值';
+				// resultEx.innerText = 'Example: ' + data[0].meaning.noun[0].example + '.';
+				return;
+			}
+
+			if (data[1]) {
+
+				return;
+			}
+		})
+		.catch(error => {
+			console.log(error);
+			showAlert();
+		})
+}
+
+//當使用者輸入有誤所出現的彈跳視窗
+function showAlert() {
+	overlay.setAttribute('data-active', 'true');
 }
 
 /* Invokes functions below */

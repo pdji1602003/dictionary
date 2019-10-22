@@ -122,7 +122,7 @@ body {
 }
 
 .result {
-	display: block;
+	display: none;
 	margin: 10px auto 0;
 	width: 800px;
 	max-width: 60%;
@@ -133,4 +133,70 @@ body {
 	font-size: 2rem;
 	text-align: center;
 	margin-bottom: 5px;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 400ms;
+}
+
+
+.overlay[data-active="true"] {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	max-width: 90%;
+	padding: 3% 3%;
+	color: black;
+	background-color: #e9ecef;
+	border-radius: 10px;
+	transition: all 5s ease-in-out;
+}
+
+.popup-header {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.popup-header > h2 {
+	text-align: center;
+	font-size: 5rem;
+}
+
+.popup-header .close {
+	position: absolute;
+	right: -10px;
+	top: -20px;
+	text-decoration: none;
+	color: black;
+	font-size: 2rem;
+	font-weight: 600;
+	transition: all 200ms;
+}
+
+.popup-header .close:hover {
+	color: rgb(120, 60, 55);
+}
+
+.popup-content > p {
+	--margin:5%;
+	width: calc(100% - var(--margin));
+	margin: 0 var(--margin);
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 1.5;
 }
