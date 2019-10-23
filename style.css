@@ -18,7 +18,7 @@ body {
 	font-weight: 400;
 	font-size: 1rem;
 	color: white;
-	background:url('../img/dic-01.jpg') no-repeat ;
+	background:url('./img/dic-01.jpg') no-repeat ;
 	background-position: 50% 10%;
 	background-size: cover;
 	overflow: hidden;
