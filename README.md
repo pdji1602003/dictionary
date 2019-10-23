@@ -13,5 +13,5 @@ For the dictionary API, I use the API built by [@meetDeveloper](https://github.c
 使用方式非常直覺簡單：使用者在輸入框內輸入欲查找的單字，選擇語言後按下"Enter"鍵，即可獲得查詢結果。
 
 ## Credit
-關於背景圖片，我使用的是這名[攝影師](https://unsplash.com/@thepootphotographer)的作品。
+關於背景圖片，我使用的是這名[攝影師](https://unsplash.com/@thepootphotographer)的作品。  
 關於本網站所使用到的字典API，我使用的是這名[工程師](https://github.com/meetDeveloper)所打造的API。
