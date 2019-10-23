@@ -5,7 +5,7 @@ This is a simple dictionary website, which includes English, French and German, 
 It's very simple to use : Users of this website can type in a word in the input box and the choose the language the word is in. After pressing the "Enter" key, users are presented with the result of the word right below the input box.
 
 ## Credit
-For the background image, I use the photo shot by [@specialdaddy](https://unsplash.com/@thepootphotographer).
+For the background image, I use the photo shot by [@specialdaddy](https://unsplash.com/@thepootphotographer).  
 For the dictionary API, I use the API built by [@meetDeveloper](https://github.com/meetDeveloper).
 
 ## 關於
