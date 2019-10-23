@@ -135,6 +135,17 @@ body {
 	margin-bottom: 5px;
 }
 
+#output {
+	max-width: 100%;
+	text-align: start;
+}
+
+.result-sentence {
+	max-width: 100%;
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
 .overlay {
 	position: fixed;
 	top: 0;
@@ -146,7 +157,6 @@ body {
 	visibility: hidden;
 	transition: opacity 400ms;
 }
-
 
 .overlay[data-active="true"] {
 	visibility: visible;
@@ -199,4 +209,31 @@ body {
 	font-size: 1.2rem;
 	font-weight: 600;
 	line-height: 1.5;
+}
+
+@media screen and (max-width:600px){
+	.time {
+		font-size: 5rem;
+		font-weight: bold;
+	}
+	
+	.greeting {
+		font-size: 2rem;
+		font-weight: bold;
+	}
+
+	.search-select-label {
+		display: block;
+		margin-bottom: 5px;
+		font-size: 18px;
+	}
+
+	.result-word {
+		font-size: 1.8rem;
+		line-height: 1;
+	}
+
+	.result-sentence {
+		font-size: 14px;
+	}
 }

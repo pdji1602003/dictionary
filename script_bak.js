@@ -1,22 +1,31 @@
+/*
+我現在應該要做什麼呢？
+1.語言選擇的功能
+她的使用流程是
+使用者輸入文字後->選擇語言->按下enter鍵，
+我就應該要按照使用者所選擇的語言回傳查詢結果
+所以我應該要獲取使用者輸入語言的值
+在按下submit時，若使用者沒有另外去選擇語言，則撈取設為default語言選項的語言結果
+*/
 const timeContainer = document.querySelector('.time');
 const greetingContainer = document.querySelector('.greeting');
 const formElement = document.querySelector('.search-form');
 const searchInput = document.querySelector('.search-input');
 const resultContainer = document.querySelector('.result');
+const resultDef = document.querySelector('.result-def');
+const resultEx = document.querySelector('.result-ex');
 const selectElement = document.getElementById('lang-select');
 const overlay = document.querySelector('.overlay');
 const closeBtn = document.querySelector('.close');
-const outputContainer = document.getElementById('output');
+let outputContainer = document.getElementById('output');
 
 /* Events */
 // 輸入單字觸發的事件，send request to google dictionary api並抓取相關資料
 formElement.addEventListener('submit', e => {
-	const inputValue = searchInput.value;
 	e.preventDefault();
 	fetchData();
-	resultContainer.style.display = 'block';
-	clearInputValue();
-	showResult(inputValue);
+
+
 })
 
 closeBtn.addEventListener('click', event => {
@@ -62,57 +71,35 @@ function fetchData() {
 	const langValue = selectElement.options[selectElement.selectedIndex].value;
 	const BASE_URL = 'https://googledictionaryapi.eu-gb.mybluemix.net/?define=';
 	if (inputValue == null || inputValue === '') return;
+	clearInputValue();
 	axios
 		.get(`${BASE_URL}${inputValue}&lang=${langValue}`)
 		.then(function (e) {
 			const { data } = e;
-			const firstData = data[0];//將在data獲取的第一筆資料設為firstData
-			const firstDataKeys = Object.keys(firstData);//取得firstData的所有keys，返回形式為一array
-			const meaningsIndex = firstDataKeys.indexOf("meaning");//取得meaning在firstDataKeys中的index
-			const meaningsData = firstData[firstDataKeys[meaningsIndex]]//取得meaning底下的所有data
-			const meaningsKeys = Object.keys(meaningsData);//取得meaning裡的所有key
-
-			//當搜尋單字為英語
-			if (data[0] && langValue === 'en') {
+			if (data[0]) {
+				const firstData = data[0];//將在data獲取的第一筆資料設為firstData
+				const firstDataKeys = Object.keys(firstData);//取得firstData的所有keys，返回形式為一array
+				const meaningsIndex = firstDataKeys.indexOf("meaning");//取得meaning在firstDataKeys中的index
+				const meaningsData = firstData[firstDataKeys[meaningsIndex]]//取得meaning底下的所有data
+				const meaningsKeys = Object.keys(meaningsData);//取得meaning裡的所有key
 				const meaningFirstData = meaningsData[meaningsKeys[0]][0]//whatever the first data is, I'm fetching it!
 				let listItem = "";
-				for (let i in meaningFirstData) {
+				for ( let i in meaningFirstData ){
 					listItem += `<li class="result-sentence">${i} : ${meaningFirstData[i]}</li>`
 				}
 				outputContainer.innerHTML = listItem;
+				resultContainer.style.display = 'block';
+				showResult(inputValue);
+				//同時有definition跟example就回傳
+				// resultDef.innerText = 'Definition: ' + data[0].meaning.noun[0].definition || '我是真值';
+				// resultEx.innerText = 'Example: ' + data[0].meaning.noun[0].example + '.';
 				return;
 			}
 
-			//當搜尋單字為法語
-			if (data[0] && langValue === 'fr') {
-				const meaningfirstKey = meaningsKeys[0];
-				const genderKeys = Object.keys(meaningsData[meaningfirstKey]);
-				const genderFirstKey = genderKeys[0];
-				const firstData = meaningsData[meaningfirstKey][genderFirstKey][0];
-				let listItem = "";
-				for (let i in firstData) {
-					if(firstData[i] === "") continue;
-					listItem += `<li class="result-sentence">${i} : ${firstData[i]}</li>`
-				}
-				outputContainer.innerHTML = listItem;
+			if (data[1]) {
+
 				return;
 			}
-
-				//當搜尋單字為德語
-				if (data[0] && langValue === 'de') {
-					const meaningfirstKey = meaningsKeys[0];
-					const genderKeys = Object.keys(meaningsData[meaningfirstKey]);
-					const genderFirstKey = genderKeys[0];
-					const firstData = meaningsData[meaningfirstKey][genderFirstKey][0];
-					let listItem = "";
-					for (let i in firstData) {
-						if(firstData[i] === "" || firstData[i] === []) continue;
-						listItem += `<li class="result-sentence">${i} : ${firstData[i]}</li>`
-					}
-					outputContainer.innerHTML = listItem;
-					return;
-				}
-	
 		})
 		.catch(error => {
 			console.log(error);
