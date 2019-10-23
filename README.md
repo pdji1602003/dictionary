@@ -2,7 +2,7 @@
 
 ## About
 This is a simple dictionary website, which includes English, French and German, three languages' dictionaries in total.  
-This website is simple to use : Users of this website can type in a word in the input box and the choose the language the word is in. After pressing the "Enter" key, users are presented with the result of the word right below the input box.
+This website is simple to use : Users of this website can type in a word in the input box and the choose the language then word is in. After pressing the "Enter" key, users are presented with the result of the word right below the input box.
 
 ## Credit
 For the background image, I use the photo shot by [@specialdaddy](https://unsplash.com/@thepootphotographer).  
