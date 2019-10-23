@@ -1,7 +1,7 @@
 # Dictionary
 
 ## About
-This is a simple dictionary website, which includes English, French and German, three languages in todal.  
+This is a simple dictionary website, which includes English, French and German, three languages' dictionaries in todal.  
 It's very simple to use : Users of this website can type in a word in the input box and the choose the language the word is in. After pressing the "Enter" key, users are presented with the result of the word right below the input box.
 
 ## Credit
