@@ -222,6 +222,10 @@ body {
 		font-weight: bold;
 	}
 
+	.search-input-label {
+		display: inline-flex;
+	}
+
 	.search-select-label {
 		display: block;
 		margin-bottom: 5px;
