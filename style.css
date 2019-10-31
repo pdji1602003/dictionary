@@ -217,6 +217,9 @@ body {
 	body {
 		min-height: -webkit-fill-available;
 		width: 100%;
+		display: flex;
+		justify-content: stretch;
+		align-items: stretch;
 	}
 
 	.time {
