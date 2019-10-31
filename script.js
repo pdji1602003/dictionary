@@ -125,9 +125,22 @@ function showAlert() {
 	overlay.setAttribute('data-active', 'true');
 }
 
+function fixHeight(){
+	let maxHeight = 0;
+	const childrenElements = document.querySelectorAll('body > div');
+	childrenElements.forEach( element => {
+		if(element.clientHeight > maxHeight){
+			maxHeight = element.clientHeight;
+			document.body.clientHeight = maxHeight;
+		}
+	})
+	
+}
+
 /* Invokes functions below */
 //要讓時間與當地時間一致，需要使用setInterval在背景不斷地調用這個showTime函數
 setInterval(showTime, 1000);
 
 greeting();
 
+fixHeight();
