@@ -214,6 +214,11 @@ body {
 }
 
 @media screen and (max-width:600px){
+	body {
+		height: 100%;
+		width: 100%;
+	}
+
 	.time {
 		font-size: 4rem;
 		font-weight: bold;
