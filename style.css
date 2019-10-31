@@ -215,7 +215,7 @@ body {
 
 @media screen and (max-width:600px){
 	body {
-		min-height: -webkit-fill-available;
+		height: 75vw;
 		width: 100%;
 		display: flex;
 		justify-content: stretch;
