@@ -232,6 +232,10 @@ body {
 		font-size: 18px;
 	}
 
+	.result {
+		max-width: 70%;
+	}
+
 	.result-word {
 		font-size: 1.8rem;
 		line-height: 1;
