@@ -23,6 +23,8 @@ closeBtn.addEventListener('click', event => {
 	overlay.setAttribute('data-active', 'false');
 })
 
+window.addEventListener('resize', fixHeight);
+
 /* functions */
 //抓取時間並即時反映在screen上
 function showTime() {
@@ -126,15 +128,10 @@ function showAlert() {
 }
 
 function fixHeight(){
-	let maxHeight = 0;
-	const childrenElements = document.querySelectorAll('body > div');
-	childrenElements.forEach( element => {
-		if(element.clientHeight > maxHeight){
-			maxHeight = element.clientHeight;
-			document.body.clientHeight = maxHeight;
-		}
-	})
-	
+	const mainContainer = document.querySelector('.container');
+	const computedStyle = getComputedStyle(mainContainer);
+	const height = computedStyle.getPropertyValue('height');
+	document.querySelector('main').style.setProperty('--custom-height', height )
 }
 
 /* Invokes functions below */

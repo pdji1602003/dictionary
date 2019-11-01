@@ -11,9 +11,8 @@
 }
 
 body {
-	position: relative;
-	height: 100vh;
-	width:100vw;
+	height: 100%;
+	width: 100%;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	font-size: 1rem;
@@ -22,6 +21,13 @@ body {
 	background-position: 50% 10%;
 	background-size: cover;
 	overflow: hidden;
+}
+
+main {
+	position: relative;
+	/* height: 100vh; */
+	min-height: calc(var(--custom-height, 1vh) * 1%);
+	width:100vw;
 }
 
 .container {
@@ -215,11 +221,12 @@ body {
 
 @media screen and (max-width:600px){
 	body {
-		height: 100vh;
+		height: 100%;
 		width: 100%;
 		display: flex;
 		justify-content: stretch;
 		align-items: stretch;
+		overflow-y: visible;
 	}
 
 	.time {

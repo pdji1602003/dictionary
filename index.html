@@ -13,46 +13,51 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="time">12:30</div>
-		<div class="greeting">Good afternoon!</div>
-		<form class="search-form" action="/">
-			<label class="search-input-label">
-				<input class="search-input" type="text" placeholder="Type a word here..." required>
-				<button class="search-btn" type="submit">
-					<i class="fa fa-search fa-lg"></i>
-				</button>
-			</label>
-			<br>
-			<label class="search-select-label">Select Language :</label>
-			<select class="search-select" id="lang-select">
-				<option value="en">English</option>
-				<option value="fr">French</option>
-				<option value="de">German</option>
-			</select>
-		</form>
-		<div class="result">
-			<p class="result-word"></p>
-			<ul id="output">
-				<!-- <li class="result-sentence"></li>
-				<li class="result-sentence"></li> -->
-			</ul>
+	<main style="--custom-height:10;">
+		<div class="container">
+			<div class="time">12:30</div>
+			<div class="greeting">Good afternoon!</div>
+			<form class="search-form" action="/">
+				<label class="search-input-label">
+					<input class="search-input" type="text" placeholder="Type a word here..." required>
+					<button class="search-btn" type="submit">
+						<i class="fa fa-search fa-lg"></i>
+					</button>
+				</label>
+				<br>
+				<label class="search-select-label">Select Language :</label>
+				<select class="search-select" id="lang-select">
+					<option value="en">English</option>
+					<option value="fr">French</option>
+					<option value="de">German</option>
+				</select>
+			</form>
+			<div class="result">
+				<p class="result-word"></p>
+				<ul id="output">
+					<!-- <li class="result-sentence"></li>
+							<li class="result-sentence"></li> -->
+				</ul>
+			</div>
 		</div>
-	</div>
 
-	<!-- popup -->
-	<div class="overlay" data-active="false">
-		<div class="popup">
-			<div class="popup-header">
-				<h2>Oops!</h2>
-				<a class="close">&times;</a>
-			</div>
-			<div class="popup-content">
-				<p>Sorry, we could not find the word you were looking for.</p>
-				<p>Please check your spelling or try with another word.</p>
+		<!-- popup -->
+		<div class="overlay" data-active="false">
+			<div class="popup">
+				<div class="popup-header">
+					<h2>Oops!</h2>
+					<a class="close">&times;</a>
+				</div>
+				<div class="popup-content">
+					<p>Sorry, we could not find the word you were looking for.</p>
+					<p>Please check your spelling or try with another word.</p>
+				</div>
 			</div>
 		</div>
-	</div>
+		
+	</main>
+	
+
 
 </body>
 
