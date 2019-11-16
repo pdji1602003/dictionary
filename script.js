@@ -23,8 +23,6 @@ closeBtn.addEventListener('click', event => {
 	overlay.setAttribute('data-active', 'false');
 })
 
-window.addEventListener('resize', fixHeight);
-
 /* functions */
 //抓取時間並即時反映在screen上
 function showTime() {
@@ -127,17 +125,8 @@ function showAlert() {
 	overlay.setAttribute('data-active', 'true');
 }
 
-function fixHeight(){
-	const mainContainer = document.querySelector('.container');
-	const computedStyle = getComputedStyle(mainContainer);
-	const height = computedStyle.getPropertyValue('height');
-	document.querySelector('main').style.setProperty('--custom-height', height )
-}
-
 /* Invokes functions below */
 //要讓時間與當地時間一致，需要使用setInterval在背景不斷地調用這個showTime函數
 setInterval(showTime, 1000);
 
 greeting();
-
-fixHeight();
