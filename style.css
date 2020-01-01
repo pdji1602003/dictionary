@@ -37,13 +37,9 @@ main {
 }
 
 .container {
-	/* position: absolute; */
-	/* left: 50%; */
-	/* top: 50%; */
-	/* transform: translate(-50%, -50%); */
 	width: 800px;
 	max-width: 90%;
-	margin: 0 auto;
+	margin: 5% auto;
 	padding: 1.5em;
 	text-align: center;
 	border-radius: 10px;
