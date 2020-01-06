@@ -99,19 +99,19 @@ function fetchData() {
 			}
 
 			//當搜尋單字為德語
-			if (data[0] && langValue === 'de') {
-				const meaningfirstKey = meaningsKeys[0];
-				const genderKeys = Object.keys(meaningsData[meaningfirstKey]);
-				const genderFirstKey = genderKeys[0];
-				const firstData = meaningsData[meaningfirstKey][genderFirstKey][0];
-				let listItem = "";
-				for (let i in firstData) {
-					if (firstData[i] === "" || firstData[i] === []) continue;
-					listItem += `<li class="result-sentence">${i} : ${firstData[i]}</li>`
-				}
-				outputContainer.innerHTML = listItem;
-				return;
-			}
+			// if (data[0] && langValue === 'de') {
+			// 	const meaningfirstKey = meaningsKeys[0];
+			// 	const genderKeys = Object.keys(meaningsData[meaningfirstKey]);
+			// 	const genderFirstKey = genderKeys[0];
+			// 	const firstData = meaningsData[meaningfirstKey][genderFirstKey][0];
+			// 	let listItem = "";
+			// 	for (let i in firstData) {
+			// 		if (firstData[i] === "" || firstData[i] === []) continue;
+			// 		listItem += `<li class="result-sentence">${i} : ${firstData[i]}</li>`
+			// 	}
+			// 	outputContainer.innerHTML = listItem;
+			// 	return;
+			// }
 
 		})
 		.catch(error => {
