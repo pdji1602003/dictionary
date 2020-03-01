@@ -15,3 +15,6 @@ For the dictionary API, I use the API built by [@meetDeveloper](https://github.c
 ## Credit
 關於背景圖片，我使用的是這名[攝影師](https://unsplash.com/@thepootphotographer)的作品。  
 關於本網站所使用到的字典API，我使用的是這名[工程師](https://github.com/meetDeveloper)所打造的API。
+
+## 影片展示
+請參考本影片以獲知此Web應用的各項功能 👉：[VIDEO DEMO](https://www.youtube.com/watch?v=WsORvAGpmEM&feature=youtu.be)
